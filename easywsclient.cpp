@@ -416,6 +416,7 @@ easywsclient::WebSocket::pointer from_url(const std::string& url, bool useMask, 
     if (!ssl_initialized) {
         SSL_load_error_strings();
         SSL_library_init();
+        ssl_initialized = true;
     }
 #define SEND(buf)  SSL_write(sslHandle, buf, strlen(buf))
 #define RECV(buf)  SSL_read(sslHandle, buf, 1)

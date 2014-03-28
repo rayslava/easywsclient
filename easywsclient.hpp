@@ -47,7 +47,6 @@ class WebSocket {
     }
 
   protected:
-
     struct Callback { virtual void operator()(const std::string& message) = 0; };
     virtual void _dispatch(Callback& callable) = 0;
 };
