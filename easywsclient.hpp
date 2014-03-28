@@ -10,6 +10,12 @@
 
 #include <string>
 
+#ifdef SSL_SUPPORT
+        #include <openssl/ssl.h>
+        #include <openssl/err.h>
+        #include <openssl/crypto.h>
+#endif
+
 namespace easywsclient {
 
 class WebSocket {
@@ -41,6 +47,7 @@ class WebSocket {
     }
 
   protected:
+
     struct Callback { virtual void operator()(const std::string& message) = 0; };
     virtual void _dispatch(Callback& callable) = 0;
 };
